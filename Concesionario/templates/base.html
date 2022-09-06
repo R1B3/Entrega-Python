@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css">
+    <title>
+      {% block title %}
+      {% endblock %}
+    </title>
+</head>
+
+
+
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg" style="background: black; font-family: Bebas Neue ;">
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" style="color: white;" aria-current="page" href="/">Inicio</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" style="color: white;" aria-current="page" href="/about_us/">Acerca De</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" style="color: white;" aria-expanded="false">
+                      Vehiculos
+                    </a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/vehicles/cars/">Autos</a></li>
+                        <li><a class="dropdown-item" href="/vehicles/motorcycles">Motocicletas</a></li>
+                        <li><a class="dropdown-item" href="/vehicles/trucks">Camiones/Camionetas</a></li>
+                      </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" style="color: white;" aria-expanded="false">
+                      Crear Vehiculo 
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="/vehicles/create-car">Autos</a></li>
+                      <li><a class="dropdown-item" href="/vehicles/create-motorcycle">Motocicletas</a></li>
+                      <li><a class="dropdown-item" href="/vehicles/create-truck">Camiones/Camionetas</a></li>
+                    </ul>
+                  </li>
+                  {% if request.user.is_authenticated %}
+                  <li class="nav-item">
+                    <a class="nav-link active" style="color: white;" aria-current="page" href="/logout/">Logout</a>
+                  </li>
+                    <li class="nav-item" >
+                     <h4 style="margin-left: 70rem;"><a href="/profile/">{{request.user.username}}</a></h4>
+                  </li>  
+                 <li class="nav-item">
+                    <img src="{{request.user.profile.profile_image.url}}" style="height: 2rem;" >
+                  </li>
+
+                  {% else %}
+                  <li class="nav-item">
+                    <a class="nav-link active" style="color: white;" aria-current="page" href="/login/">Login</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" style="color: white;" aria-current="page" href="/signup/">Signup</a>
+                  </li>
+                  {% endif %}
+                </ul>
+
+                <form class="d-flex" role="search" action="/vehicles/search-vehicle/" method="GET">
+                  <input class="form-control me-2" type="text" placeholder="Search" name="Search" aria-label="Search">
+                  <button class="btn btn-success" style="color: black;" type="submit">Buscar</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+    </header>
+
+
+
+  <div>
+    {% block info %}
+    {% endblock %}
+  </div>
+
+  <div class="footer_section layout_padding">
+    <div class="container">
+      <div class="copyright_section">
+          <p></p>
+		      <p style="font-family: Helvetica; font-style:normal; margin-block-start: 3rem; margin-block-end: 3rem; color: gray;text-align: center;" class="copyright_text">© 2022 La Vecinita SL</p>
+      </div>  
+		</div>
+	</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+</body>
+</html>

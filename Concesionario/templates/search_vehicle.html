@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Buscar Vehiculo
+{% endblock %}
+
+{% block info %}
+
+  <h1 style="font-family: Bebas Neue;font-style: italic;margin-left: 45rem;">BUSQUEDA DE VEHICULOS</h1>
+
+
+{% for car in cars %}
+
+<div class="card" style="width: 18rem;">
+  <img src="{{car.image.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Marca: {{car.brand}}</h5>
+    <p class="card-text">Año: {{car.year}}</p>
+    <p class="card-text">Precio: ${{car.price}}</p>
+    <a href="/vehicles/car-details/{{car.id}}/" class="btn btn-info">Ver más</a>
+  </div>
+</div>
+
+{% endfor%}
+
+{% for truck in trucks %}
+<div class="card" style="width: 18rem;">
+  <img src="{{truck.image.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Marca: {{truck.brand}}</h5>
+    <p class="card-text">Año: {{truck.year}}</p>
+    <p class="card-text">Precio: ${{truck.price}}</p>
+    <a href="/vehicles/truck-details/{{truck.id}}/" class="btn btn-info">Ver más</a>
+  </div>
+</div>
+
+{% endfor%}
+
+{% for motorcycle in motorcycles %}
+<div class="card" style="width: 18rem;">
+  <img src="{{motorcycle.image.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Marca: {{motorcycle.brand}}</h5>
+    <p class="card-text">Año: {{motorcycle.year}}</p>
+    <p class="card-text">Precio:{{motorcycle.year}}</p>
+    <a href="/vehicles/motorcycle-details/{{motorcycle.id}}/" class="btn btn-info">Ver más</a>
+  </div>
+</div>
+
+{% endfor%}
+
+
+
+
+{% endblock %}

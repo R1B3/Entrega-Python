@@ -1,0 +1,44 @@
+/**
+No funciona --> Averiguar el Por Que 
+**/
+
+body{
+    background: #333;
+    height: 100vh;
+    font-family: cursive;
+}
+
+.icon-bar{
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.icon-bar a {
+    display: block;
+    text-align: center;
+    transition: all 0.3s ease;
+    color: #fff;
+    font-size: 25px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px dashed #fff;
+    padding: 25px;
+}
+
+.icon-bar a:hover{
+    background: #fff;
+    color: #000;
+}
+
+.container{
+    max-width: 1000px;
+    margin: auto;
+    color: #fff;
+}
+
+.container p{
+    font-size: 30px;
+    text-align: justify;
+}

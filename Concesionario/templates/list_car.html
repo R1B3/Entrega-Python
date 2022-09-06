@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Autonoviles
+{% endblock %}
+
+{% block info %}
+<div class="container">
+  <h1 style="font-family: Bebas Neue;font-style: normal;text-align: center;margin-top: 3rem;margin-bottom: 3rem;">Automoviles</h1>
+</div>
+  {% for car in object_list %}
+  <div class="container">
+    <div class="card" style="width: 18rem;align-items: center;margin-left: 32rem ;font-family: Bebas Neue;">
+      {% if car.image %}
+      <img src="{{car.image.url}}" class="card-img-top" alt="...">
+      {% endif %}
+      <div class="card-body">
+        <h5 class="card-title">{{car.brand}}</h5>
+        <a href="/vehicles/car-details/{{car.id}}/" class="btn btn-info">Ver más</a>
+      </div>
+  </div>
+
+
+  {% endfor %}
+
+{% endblock %}
+

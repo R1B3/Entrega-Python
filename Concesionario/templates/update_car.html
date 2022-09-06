@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Actualizar vehiculo
+{% endblock %}
+
+
+{% block info %}
+{% if form %}
+  <h1 style="font-family: Bebas Neue;font-style: italic;margin-left: 40rem;">Completa los campos para actualizar</h1>
+
+<form method="POST" enctype="multipart/form-data" action="" style="width: 18rem; margin-left: 45rem; margin-top: 10rem;font-family: Bebas Neue;">
+  {% csrf_token %}
+  <table>
+  {{form.as_table}}
+  </table>
+  <input class="btn btn-success" type="submit",value="Enviar">
+</form>
+
+{% endif%}
+{% endblock %}

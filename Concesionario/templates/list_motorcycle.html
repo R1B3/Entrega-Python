@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Motocicletas
+{% endblock %}
+
+{% block info %}
+<div class="container">
+  <h1 style="font-family: Bebas Neue;font-style: normal;text-align: center;margin-top: 3rem;margin-bottom: 3rem;">Motocicletas</h1>
+</div>
+  {% for motorcycle in object_list %}
+  <div class="container">
+    <div class="card" style="width: 18rem;align-items: center;margin-left: 32rem ;font-family: Bebas Neue;">
+      {% if motorcycle.image %}
+     <img src="{{motorcycle.image.url}}" class="card-img-top" alt="...">
+      {% endif %}
+      <div class="card-body">
+       <h5 class="card-title">{{motorcycle.brand}}</h5>
+       <a href="/vehicles/motorcycle-details/{{motorcycle.id}}/" class="btn btn-info">Ver más</a>
+      </div>
+    </div>
+  </div>
+
+  {% endfor %}    
+
+{% endblock %}

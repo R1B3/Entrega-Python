@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Eliminar Vehiculo
+{% endblock %}
+
+
+{% block info %}
+<h3 style="color: red">Se eliminara {{object.brand}}, seguro?</h3>
+
+<form method="POST" action="">
+  {% csrf_token %}
+  <button class="btn btn-danger" type="submit">Eliminar</button>
+</form>
+
+{% endblock %}

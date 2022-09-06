@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Perfil
+{% endblock %}
+
+{% block info %}
+
+
+
+<h1 style="font-family: Bebas Neue;font-style: italic;margin-left: 50rem;margin-top: 3rem;">PERFIL</h1>
+
+
+<div class="card" style="width: 20rem;margin-left: 50rem;font-family: Bebas Neue;">
+  {% if request.user.profile.profile_image %}
+  <img src="{{request.user.profile.profile_image.url}}" class="card-img-top" alt="...">
+  {% endif %}
+  <div class="card-body">
+    <h5 class="card-title">First name: {{request.user.profile.first_name}}</h5>
+    <h5 class="card-title">Apellido:{{request.user.profile.last_name}}</h5>
+    <h5 class="card-title">Teléfono:{{request.user.profile.phone}}</h5>
+    <h5 class="card-title">Direccion:{{request.user.profile.adress}}</h5>
+    <h5 class="card-title">Ciudad:{{request.user.profile.city}}</h5>
+    <h5 class="card-title">Género:{{request.user.profile.gender}}</h5>
+    <h5 class="card-title">Email:{{request.user.profile.email}}</h5>
+  </div>
+<a href="/profile/edit_profile/{{request.user.profile.id}}" class="btn btn-success">Editar</a>
+</div>
+
+
+
+
+
+{% endblock %}
+
+
+
+
+
